@@ -1,0 +1,125 @@
+#include<conio.h>
+#include<cstdio>
+#include<iostream>
+#include<string.h>
+#include<cstdlib>
+using namespace std;
+static int p=0;
+class bus
+{
+    int busn; int busno; int busnum;
+    int seat;
+    char driver[10], arrival[5], depart[5], from[10], to[10], pass[10];
+    int x;
+    int i;
+public:
+    available();
+    install();
+    reservation();
+    show();
+};
+bus::available()
+{
+ cout<<"Buses available are: \n01\n02\n03\n04\n05\n06\n07\n08\n09\n10";
+};
+bus::install()
+{
+    cout<<"\nEnter bus number :";
+    cin>>busn;
+    while(busn>10)
+    {
+        cout<<"Enter correct bus number :";
+        cin>>busn;
+    }
+    cout<<"\nEnter Driver's Name :";
+    cin>>driver;
+    cout<<"\nArrival Time :";
+    cin>>arrival;
+    cout<<"\nDeparture :";
+    cin>>depart;
+    cout<<"\n\tFrom :";
+    cin>>from;
+    cout<<"\n\tTo :";
+    cin>>to;
+};
+bus::reservation()
+{
+    cout<<"Enter bus number :";
+     cin>>busnum;
+    while(busnum>10)
+    {
+        cout<<"Enter correct bus number :";
+        cin>>busnum;
+    }
+    while(busnum!=busn)
+    {
+      cout<<"First you need to install. \nEnter bus number : ";
+      cin>>busnum;
+    }
+    cout<<"Seat number :";
+    cin>>seat;
+    while(seat>32)
+    {
+       cout<<"Only 32 seats are available in this bus.\nEnter seat number :";
+       cin>>seat;
+    }
+    cout<<"Enter passenger's name :";
+    cin>>pass;
+};
+bus::show()
+{
+     cout<<"Enter bus number :";
+     cin>>busno;
+     while(busn>10 || busno!=busn)
+    {
+        cout<<"Enter correct bus number :";
+        cin>>busno;
+    }
+    cout<<"\n";
+    for(i=0;i<120;i++)
+    {
+      cout<<"-";
+    }
+    cout<<"\nDriver name :"<<driver<<"\t\tArrival time :"<<arrival<<"\t\tDeparture :"<<depart<<"\nFrom :"<<from<<"\t\t\tTo :"<<to;
+        cout<<"\n";
+    for(i=0;i<120;i++)
+      cout<<"-";
+     /* bus b;
+    {
+        for(int i=0;i<8;i++)
+        {
+            for(int j=0;j<4;j++)
+            {
+                strcpy(b.seat[i][j],"Empty");
+            }
+        }
+    }*/
+
+}
+int main()
+{
+    bus b;
+    int x;
+    while(0<1)
+    {
+    cout<<"\n\n\n";
+    cout<<"\t1. Available Bus Numbers "<<"\n\t2. Install "<<"\n\t3. Reservation "<<"\n\t4. Show"<<"\n\t5. Exit";
+    cout<<"\n\tEnter your choice : ";
+    cin>>x;
+    switch(x)
+{
+    case 1: b.available();
+    break;
+    case 2: b.install();
+    break;
+    case 3: b.reservation();
+    break;
+    case 4: b.show();
+    break;
+    case 5: exit(0);
+    default:
+        cout<<"Invalid Choice";
+   }
+}
+return 0;
+}
